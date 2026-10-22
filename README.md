@@ -1,5 +1,7 @@
 # lcx
-基础语法
+语法入门
+顺序结构程序设计
+1001
 #include <stdio.h>
 int main()
 {
@@ -11,3 +13,4 @@ int main()
     printf("dao\n");
     printf("ti\n");
 }
+1002
