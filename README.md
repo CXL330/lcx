@@ -55,3 +55,51 @@ int main(){
     printf("1*9= 9 2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81\n");
 }
 二，选择结构程序设计
+A比大小
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a,b;
+    cin >> a >> b;
+    if(a<b) cout <<'<';
+    else if (a>b) cout <<'>';
+    else cout <<'=';
+}
+B卡拉兹函数
+#include<bits/stdc++.h>
+using namespace std;
+int f(int n){
+    if(n % 2 == 0)return n / 2;
+    else return 3 * n + 1;
+}
+int main(){
+    int n;
+    cin >> n;
+    cout << f(n);
+}
+C默契
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int x, y;
+    cin >> x >> y;
+    cout << (x == y ? "Tacit！" : "No Tacit!");
+}
+D整除判断
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m, n;
+    cin >> m >>n;
+    cout << (m % n == 0 ? "YES" : "NO");
+}
+E CSimplemathproblem
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long x, y;
+    cin >> x >> y;
+    cout << (y % x == 0 ? x + y : y - x);
+}
+三，循环结构程序设计
+1001
