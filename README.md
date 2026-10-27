@@ -103,3 +103,86 @@ int main(){
 }
 三，循环结构程序设计
 1001
+#include <iostream>
+#include <string>
+using namespace std;
+int main(){
+    int n;
+    while(cin >> n){
+        for(int i = 1;i <= n;i++){
+cout <<string(n-i,' ')<<string(2*i-1,'*') << endl;
+        }
+        for(int i = n -1;i >=1;i--){
+            cout << string(n-i,' ')<<string(2*i-1,'*') << endl; 
+        }
+    }
+}
+1002
+#include<stdio.h>
+int main(){
+    int n;
+    int i,j;
+    int num = 1;
+    scanf("%d",&n);
+    for(i = 1; i <= n; i++){
+        for(j =1;j <= i; j++){
+            printf("%4d",num);
+            num = num + 1;
+        }
+        printf("\n");
+    }
+}
+1003
+#include<stdio.h>
+int main(){
+    char y;
+    scanf("%c",&y);
+    int total = y - 'A' + 1;
+        int i , j ;
+    for(i = 0 ; i < total ; i++){
+        for(j = 0 ; j < total - i - 1 ; j++){
+            printf(" ");
+        }
+        for(j = 0 ;j <= i ; j++){
+            printf("%c",'A' + j );
+        }
+        for(j = i- 1 ; j >=0 ; j--){
+            printf("%c",'A' + j );
+        }
+        printf("\n");
+    }
+}
+1004
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while (t--){
+        int n;
+        cin >> n;
+        for (int i = 1; i <= (n-1) / 2; i++){
+            for(int j = 1;j <= (n - 1) / 2 - i + 1; j++){
+                cout << ' ';
+            }
+            for(int j =1; j <= 2 * i - 1; j++){
+                cout << '*';
+            }
+            cout << '\n';
+        }
+        for(int i = 1; i <= n; i++){
+            cout << '*';
+        }
+        cout << '\n';
+        for(int i = 1; i <= (n - 1) / 2; i++){
+            for(int j =1; j <= i; j++){
+                cout << ' ';
+            }
+            for(int j = 1;j <=n - 2 * i;j++){
+                cout << '*';
+            }
+            cout << '\n';
+        }
+    }
+}
+1005
