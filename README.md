@@ -251,3 +251,62 @@ int main(void){
     }
     printf("%lld\n",count);
 }
+1003
+#include<stdio.h>
+int main(void){
+    int n, k, m;
+    scanf("%d%d%d",&n,&k,&m);
+    int ans = 0;
+    for(int i = 2;i <= n; i++){
+        ans = (ans + m)% i;
+    }
+    ans = (ans + k) % n;
+    printf("%d\n",ans);
+}
+1004
+#include <iostream>
+ using namespace std;
+ int main(){
+     int L, M;
+     bool tree[10001] = {false};
+     cin >> L >> M;
+     for(int i = 1; i <= M; i++){
+         int l, r;
+         cin >> l >> r;
+         for(int pos = l; pos <= r; pos++){
+             tree[pos] = true;
+         }
+     }
+     int ans = 0;
+     for(int i = 0; i <= L; i++){
+         if(tree[i]==false) ans++;
+     }
+     cout << ans;
+ }
+ 1005
+ #include<stdio.h>
+int main(){
+    int n;
+    int a[100];
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        scanf("%d", &a[i]);
+    }
+    if(n >= 2){
+        if(a[n-2] < a[n-1]){
+            printf("UP\n");
+        }
+        else{
+            printf("DOWN\n");
+        }
+    }
+    else{
+        if(a[0]==15)
+            printf("DOWN\n");
+        else if(a[0]==0)
+            printf("UP\n");
+        else
+            printf("-1\n");
+    }
+}
+五，
