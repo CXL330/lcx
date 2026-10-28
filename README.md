@@ -310,3 +310,48 @@ int main(){
     }
 }
 五，
+A
+#include<iostream>
+using namespace std;
+int main(){
+    int L,R;
+    cin >> L >> R;
+    int  cnt = 0;
+    for(int i=L;i<=R;i++){
+        int x = i;
+        while(x>0){
+            if(x%10 == 2) cnt++;
+            x /=10;
+        }
+    }
+    cout << cnt;
+}
+B
+#include <iostream>
+using namespace std;
+int cnt(int num, int x, bool isTwo){
+    int res = 0;
+    if(isTwo){
+        if(num/10 == x) res++;
+        if(num%10 == x) res++;
+    }
+    else{
+        for(int t=num;t>0;t/=10)
+            if(t%10 == x) res++;
+    }
+    return res;
+}
+
+int main(){
+    int y,m,x;
+    while(cin >> y >> m >> x){
+        int days;
+        if(m==1||m==3||m==5||m==7||m==8||m==10||m==12) days=31;
+        else if(m==4||m==6||m==9||m==11) days=30;
+        else days = ((y%4==0 && y%100!=0)||y%400==0) ? 29 : 28;int ans = 0;
+        for(int d=1;d<=days;d++)
+            ans += cnt(y,x,false)+cnt(m,x,true)+cnt(d,x,true);
+        cout << ans << endl;
+    }
+}
+C
