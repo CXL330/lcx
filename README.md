@@ -186,3 +186,68 @@ int main(){
     }
 }
 1005
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,x,q;
+    while(cin>>n){
+        x=1;q=n;
+        for(int j=n*2;j>=0;j-=2){
+            cout<<string(j,' ')<<string(x,'*')<<endl;x++;
+        }
+        for(int p=2;p<=2*n;p+=2){
+            cout<<string(p,' ')<<string(q,'*')<<endl;q--;
+        }
+    }
+}
+四，数组、字符串及数据批量存储
+1001
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+    int T;
+    cin >> T;
+    while (T--){
+        int x;
+        cin >> x;
+        long long y;
+        cin >> y;
+        long long maxv = y;
+        long long minv = y;
+        long long sum = y;
+        long long sum2 = y  * y;
+        for (int i = 1; i < x; i++){
+            cin >> y;
+            if (y > maxv){
+                maxv = y;
+            }
+            if (y < minv){
+                minv = y;
+            }
+            sum = sum + y;
+            sum2 = sum2 + y * y;
+        }
+        long long range = maxv - minv;
+        double var = ((double)sum2 - (double)sum*sum/x)/x;
+        cout << range << " ";
+        cout << fixed << setprecision(3) << var << endl;
+    }
+}
+1002
+#include<stdio.h>
+int main(void){
+    int n, x;
+    scanf("%d%d",&n,&x);
+    long long count = 0;
+    for(int i = 1; i <= n;i++){
+        int y = i;
+        while(y > 0){
+            if(y % 10 == x){
+                count++;
+            }
+            y = y / 10;
+        }
+    }
+    printf("%lld\n",count);
+}
