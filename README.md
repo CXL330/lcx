@@ -309,8 +309,8 @@ int main(){
             printf("-1\n");
     }
 }
-五，
-A
+五，函数与递归
+A,
 #include<iostream>
 using namespace std;
 int main(){
@@ -326,7 +326,7 @@ int main(){
     }
     cout << cnt;
 }
-B
+B,
 #include <iostream>
 using namespace std;
 int cnt(int num, int x, bool isTwo){
@@ -354,4 +354,58 @@ int main(){
         cout << ans << endl;
     }
 }
-C
+C,
+#include<iostream>
+#include<string>
+#include<cmath>
+using namespace std;
+bool isPrime(long long n){
+    if(n <= 1)return false;
+    for(long long i = 2; i <= sqrt(n); i++){
+        if(n % i == 0){
+            return false;
+        }
+    }
+    return true;
+}
+int main(){
+    string s;
+    cin >> s;
+    string newStr = s;
+    for(int i = s.size()-2; i >= 0; i--){
+        newStr += s[i];
+    }
+    long long num =stoll(newStr);
+    if(isPrime(num)){
+        cout << "prime" << endl;
+    }
+    else{
+        cout << "noprime" << endl;
+    }
+}
+D，
+#include <iostream>
+using namespace std;
+int main() {
+    int x, y;
+    cin >> x >> y;
+    if (x > y) {
+        int temp = x;
+        x = y;
+        y = temp;
+    }
+    int count = 0;
+    for (int i = x; i <= y; i++) {
+        int temp = i;
+        int sum = 0;
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        if (sum % 5 == 0) {
+            count++;
+        }
+    }
+    cout << count << endl;
+}
+E，
