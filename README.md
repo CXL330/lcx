@@ -409,3 +409,31 @@ int main() {
     cout << count << endl;
 }
 E，
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string n,m;
+        cin>>n>>m;
+        int a1=n.size();
+        int a2=m.size();
+        vector<int> result(a1+a2);
+        for(int i=a1-1;i>=0;i--){
+            for(int j=a2-1;j>=0;j--){
+                int b=(n[i]-'0')*(m[j]-'0');
+                int sum=b+result[i+j+1];
+                result[i+j+1]=sum%10;
+                result[i+j]+=sum/10;
+            }
+        }
+        for(int i=1;i<=a1+a2-1;i++){
+            cout<<result[i];
+        }
+        cout<<endl;
+    }
+}
+六，栈、队列和stl
