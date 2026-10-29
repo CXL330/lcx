@@ -511,3 +511,56 @@ int main(){
     }
 }
 D，
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+const int MAXN = 25;
+string s[MAXN];
+bool cmp(string a, string b){
+    return a + b > b + a;
+}
+int main(){
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> s[i];
+    }
+    sort(s, s + n, cmp);
+    for(int i = 0; i < n; i++){
+        cout << s[i];
+    }
+}
+E，
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    string s;
+    cin >> s;
+    int cnta = 0, cntb = 0;
+    bool ok = true;
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] =='a'){
+            cnta++;
+        }
+        else if(s[i] == 'b'){
+            cntb++;
+        }
+        else{
+            ok = false;
+            break;
+        }
+        if(cntb > cnta){
+            ok = false;
+            break;
+        }
+    }
+    if(ok && cnta == cntb){
+        cout << "Good" << endl;
+    }
+    else{
+        cout << "Bad" << endl;
+    }
+}
+七，模拟、枚举与贪心
