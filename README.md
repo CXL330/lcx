@@ -437,3 +437,77 @@ int main(){
     }
 }
 六，栈、队列和stl
+A，
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+    int a[8] = {1,2,3,4,5,6,7,8};
+    do{
+        cout << a[0];
+        for(int i = 1; i < 8; i++){
+            cout << " " << a[i];
+        }
+        cout << endl;
+    }
+    while(next_permutation(a, a + 8));
+}
+B，
+#include <iostream>
+#include <algorithm>
+using namespace std;
+const int MAXN = 100001;
+int A[MAXN];
+int B[MAXN];
+int diff[MAXN];
+int main(){
+    int n, K;
+    cin >> n >> K;
+    for(int i = 0; i < n; i++){
+        cin >> A[i];
+    }
+    for(int i = 0; i < n; i++){
+        cin >> B[i];
+    }
+    long long sum = 0;
+    for(int i = 0; i < n; i++){
+        sum = sum + B[i];
+        diff[i] = A[i] - B[i];
+    }
+    sort(diff, diff + n, greater<int>());
+    for(int i = 0; i < K; i++){
+        sum = sum + diff[i];
+    }
+ 
+    cout << sum << endl;
+}
+C，
+#include<iostream>
+#include<algorithm>
+using namespace std;
+const int MAXN = 101;
+long long a[MAXN];
+int main(){
+    int n;
+    cin >> n;
+    for(int i= 0; i < n; i++){
+        cin >> a[i];
+    }
+    sort(a, a + n);
+    bool find = false;
+    int pos;
+    for(int i = 2; i < n; i++){
+        if(a[i-2] + a[i-1] > a[i]){
+            find = true;
+            pos = i;
+            break;
+        }
+    }
+    if(find == true){
+        cout << a[pos-2] << " " << a[pos-1] << " " << a[pos] << endl;
+    }
+    else{
+        cout << "No solution" << endl;
+    }
+}
+D，
