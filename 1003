@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main(){
+    char y;
+    scanf("%c",&y);
+    int total = y - 'A' + 1;
+        int i , j ;
+    for(i = 0 ; i < total ; i++){
+        for(j = 0 ; j < total - i - 1 ; j++){
+            printf(" ");
+        }
+        for(j = 0 ;j <= i ; j++){
+            printf("%c",'A' + j );
+        }
+        for(j = i- 1 ; j >=0 ; j--){
+            printf("%c",'A' + j );
+        }
+        printf("\n");
+    }
+}
