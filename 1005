@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,x,q;
+    while(cin>>n){
+        x=1;q=n;
+        for(int j=n*2;j>=0;j-=2){
+            cout<<string(j,' ')<<string(x,'*')<<endl;x++;
+        }
+        for(int p=2;p<=2*n;p+=2){
+            cout<<string(p,' ')<<string(q,'*')<<endl;q--;
+        }
+    }
+}
