@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int L,R;
+    cin >> L >> R;
+    int  cnt = 0;
+    for(int i=L;i<=R;i++){
+        int x = i;
+        while(x>0){
+            if(x%10 == 2) cnt++;
+            x /=10;
+        }
+    }
+    cout << cnt;
+}
