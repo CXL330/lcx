@@ -1,0 +1,32 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+    int T;
+    cin >> T;
+    while (T--){
+        int x;
+        cin >> x;
+        long long y;
+        cin >> y;
+        long long maxv = y;
+        long long minv = y;
+        long long sum = y;
+        long long sum2 = y  * y;
+        for (int i = 1; i < x; i++){
+            cin >> y;
+            if (y > maxv){
+                maxv = y;
+            }
+            if (y < minv){
+                minv = y;
+            }
+            sum = sum + y;
+            sum2 = sum2 + y * y;
+        }
+        long long range = maxv - minv;
+        double var = ((double)sum2 - (double)sum*sum/x)/x;
+        cout << range << " ";
+        cout << fixed << setprecision(3) << var << endl;
+    }
+}
