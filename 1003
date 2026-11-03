@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main(void){
+    int n, k, m;
+    scanf("%d%d%d",&n,&k,&m);
+    int ans = 0;
+    for(int i = 2;i <= n; i++){
+        ans = (ans + m)% i;
+    }
+    ans = (ans + k) % n;
+    printf("%d\n",ans);
+}
