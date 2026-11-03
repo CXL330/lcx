@@ -1,1 +1,109 @@
-
+四，数组、字符串及数据批量存储
+1001
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+    int T;
+    cin >> T;
+    while (T--){
+        int x;
+        cin >> x;
+        long long y;
+        cin >> y;
+        long long maxv = y;
+        long long minv = y;
+        long long sum = y;
+        long long sum2 = y  * y;
+        for (int i = 1; i < x; i++){
+            cin >> y;
+            if (y > maxv){
+                maxv = y;
+            }
+            if (y < minv){
+                minv = y;
+            }
+            sum = sum + y;
+            sum2 = sum2 + y * y;
+        }
+        long long range = maxv - minv;
+        double var = ((double)sum2 - (double)sum*sum/x)/x;
+        cout << range << " ";
+        cout << fixed << setprecision(3) << var << endl;
+    }
+}
+1002
+#include<stdio.h>
+int main(void){
+    int n, x;
+    scanf("%d%d",&n,&x);
+    long long count = 0;
+    for(int i = 1; i <= n;i++){
+        int y = i;
+        while(y > 0){
+            if(y % 10 == x){
+                count++;
+            }
+            y = y / 10;
+        }
+    }
+    printf("%lld\n",count);
+}
+1003
+#include<stdio.h>
+int main(void){
+    int n, k, m;
+    scanf("%d%d%d",&n,&k,&m);
+    int ans = 0;
+    for(int i = 2;i <= n; i++){
+        ans = (ans + m)% i;
+    }
+    ans = (ans + k) % n;
+    printf("%d\n",ans);
+}
+1004
+#include <iostream>
+ using namespace std;
+ int main(){
+     int L, M;
+     bool tree[10001] = {false};
+     cin >> L >> M;
+     for(int i = 1; i <= M; i++){
+         int l, r;
+         cin >> l >> r;
+         for(int pos = l; pos <= r; pos++){
+             tree[pos] = true;
+         }
+     }
+     int ans = 0;
+     for(int i = 0; i <= L; i++){
+         if(tree[i]==false) ans++;
+     }
+     cout << ans;
+ }
+ 1005
+ #include<stdio.h>
+int main(){
+    int n;
+    int a[100];
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        scanf("%d", &a[i]);
+    }
+    if(n >= 2){
+        if(a[n-2] < a[n-1]){
+            printf("UP\n");
+        }
+        else{
+            printf("DOWN\n");
+        }
+    }
+    else{
+        if(a[0]==15)
+            printf("DOWN\n");
+        else if(a[0]==0)
+            printf("UP\n");
+        else
+            printf("-1\n");
+    }
+}
