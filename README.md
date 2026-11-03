@@ -700,3 +700,104 @@ int main(){
     }
     cout << ans;
 }
+1004，Captcha Cracker
+#include<iostream>
+#include<string>
+using namespace std;
+pair<string,char> dict[] = {
+    {"zero",'0'},
+    {"four",'4'},
+    {"nine",'9'},
+    {"two",'2'},
+    {"six",'6'},
+};
+int main(){
+    ios::sync_with_stdio(false);
+    
+    cin.tie(nullptr);
+    int T;
+    cin >> T;
+    while(T--){
+        string s ,ans;
+        cin >> s;
+        int i = 0;
+        int n = s.size();
+        while(i < n){
+            if(s[i] == '0' || s[i] == '2' || s[i] == '4' || s[i] == '6' || s[i] == '9'){
+                ans += s[i];
+                i++;
+                continue;
+            }
+            bool ok = false;
+            for(auto &p : dict){
+                int len = p.first.size();
+                if(i + len <= n && s.substr(i, len) == p.first){
+                    ans += p.second;
+                    i += len;
+                    ok = true;
+                    break;
+                }
+            }
+            if(!ok) i++;
+        }
+        cout << ans << '\n';
+    }
+}
+1005，回文数
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main(){
+    int cnt[10];
+    for(int i = 0; i < 10; i++){
+        cin >> cnt[i];
+    }
+    int odd = 0;
+    int mid = -1;
+    for(int i = 0; i < 10; i++){
+        if(cnt[i] % 2 != 0){
+            odd++;
+            mid = i;
+        }
+    }
+    if(odd > 1){
+        cout << -1 << endl;
+        return 0;
+    }
+    string left;
+    string mid_str;
+    if(odd == 1){
+        mid_str += (char)('0' + mid);
+        cnt[mid] --;
+    }
+    for(int d = 0; d <= 9; d++){
+        int t = cnt[d] / 2;
+        left += string(t, '0' + d);
+    }
+    if(left.empty()){
+        if(!mid_str.empty())
+            cout << mid_str << endl;
+        else
+            cout << -1 << endl;
+        return 0;
+    }
+    if(left[0] == '0'){
+        bool has_nonzero = false;
+        for(int i = 0; i < left.size(); i++){
+            if(left[i] != '0'){
+                swap(left[0], left[i]);
+                has_nonzero = true;
+                break;
+            }
+        }
+        if(!has_nonzero){
+            cout << -1 << endl;
+            return 0;
+        }
+    }
+    string right = left;
+    reverse(right.begin(), right.end());
+    string ans = left + mid_str + right;
+    cout << ans << endl;
+}
